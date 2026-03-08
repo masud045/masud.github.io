@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Md Abdullah Al Masud | Portfolio</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #121933;
+      --text: #eef2ff;
+      --muted: #a8b3cf;
+      --accent: #7c9cff;
+      --accent-2: #8ef0c9;
+      --border: rgba(255,255,255,0.08);
+      --shadow: 0 20px 50px rgba(0,0,0,0.35);
+      --max: 1050px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #0b1020 0%, #0d1430 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+
+    header {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(12px);
+      background: rgba(11,16,32,0.75);
+      border-bottom: 1px solid var(--border);
+      z-index: 10;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 0;
+    }
+
+    .brand { font-weight: 800; letter-spacing: 0.3px; }
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      padding: 72px 0 44px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .hero-card, .card {
+      background: rgba(18,25,51,0.9);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      border-radius: 24px;
+    }
+
+    .hero-card { padding: 34px; }
+    .eyebrow {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(124,156,255,0.14);
+      color: #cad7ff;
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+    }
+
+    h1, h2, h3 { line-height: 1.2; margin: 0 0 14px; }
+    h1 { font-size: clamp(2rem, 5vw, 3.7rem); }
+    h2 { font-size: 1.8rem; margin-bottom: 18px; }
+    p { margin: 0 0 14px; color: var(--muted); }
+
+    .cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: #1a2344;
+      color: var(--text);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .btn.primary {
+      background: linear-gradient(135deg, var(--accent), #5a73ff);
+    }
+
+    .quick-info {
+      padding: 26px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .info-item strong { display: block; color: var(--text); }
+    .section { padding: 28px 0; }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { padding: 24px; }
+
+    .tag-list { display: flex; flex-wrap: wrap; gap: 10px; }
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border);
+      color: #dce5ff;
+      font-size: 0.92rem;
+    }
+
+    .item + .item { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--border); }
+    .item h3 { font-size: 1.08rem; margin-bottom: 8px; }
+    .muted { color: var(--muted); }
+
+    footer {
+      padding: 34px 0 60px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 860px) {
+      .hero, .grid-2, .grid-3 {
+        grid-template-columns: 1fr;
+      }
+      .nav {
+        align-items: flex-start;
+        gap: 12px;
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div class="brand">Md Abdullah Al Masud</div>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#research">Research</a>
+        <a href="#skills">Skills</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-card">
+        <div class="eyebrow">Ph.D. Candidate in Chemical Engineering</div>
+        <h1>Process modeling, optimization, and AI-driven sustainable chemical engineering.</h1>
+        <p>
+          I am Md Abdullah Al Masud, a Ph.D. candidate at West Virginia University working on process modeling,
+          superstructure optimization, membrane separations, and AI-integrated decision frameworks for sustainable chemical processes.
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#contact">Contact Me</a>
+          <a class="btn" href="#publications">View Publications</a>
+        </div>
+      </div>
+
+      <aside class="hero-card quick-info">
+        <div class="info-item">
+          <strong>Location</strong>
+          <span class="muted">Morgantown, WV</span>
+        </div>
+        <div class="info-item">
+          <strong>Email</strong>
+          <span class="muted">mam00103@mix.wvu.edu</span>
+        </div>
+        <div class="info-item">
+          <strong>Expected Graduation</strong>
+          <span class="muted">December 2026</span>
+        </div>
+        <div class="info-item">
+          <strong>Research Focus</strong>
+          <span class="muted">Optimization, AI, process intensification, membrane separations</span>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about" class="section">
+      <div class="card">
+        <h2>About Me</h2>
+        <p>
+          I specialize in process modeling, optimization, and intensification for sustainable chemical processes.
+          My work combines machine learning, process simulation, and systems optimization to improve efficiency,
+          safety, and sustainability in complex industrial systems.
+        </p>
+      </div>
+    </section>
+
+    <section id="education" class="section grid-2">
+      <div class="card">
+        <h2>Education</h2>
+        <div class="item">
+          <h3>West Virginia University</h3>
+          <p>Ph.D. in Chemical Engineering • CGPA: 3.90 • Spring 2023–Present</p>
+          <p>Expected graduation: December 2026</p>
+        </div>
+        <div class="item">
+          <h3>Bangladesh University of Engineering and Technology</h3>
+          <p>B.Sc. in Chemical Engineering • CGPA: 3.62 • 2017–2022</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Awards & Honors</h2>
+        <div class="item">
+          <h3>James and Betty Hall Fellowship Award</h3>
+          <p>West Virginia University • 2025–2026</p>
+        </div>
+        <div class="item">
+          <h3>Elias Klein Founder’s Travel Supplement Award</h3>
+          <p>North American Membrane Society • 2025</p>
+        </div>
+        <div class="item">
+          <h3>Graduate Student Award & Best Poster Recognition</h3>
+          <p>ACS Fall Meeting 2024 and WVU Diversity in Engineering Conference 2023</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" class="section">
+      <div class="card">
+        <h2>Research Experience</h2>
+        <div class="item">
+          <h3>Graduate Research Assistant — West Virginia University</h3>
+          <p>
+            Developed machine learning models and surrogate-based superstructure optimization frameworks for microwave-assisted ammonia production,
+            improving energy efficiency and sustainability.
+          </p>
+        </div>
+        <div class="item">
+          <h3>Membrane Separation Optimization</h3>
+          <p>
+            Built process-structure-property optimization frameworks for sustainable nutrient recovery and designed a GUI prototype
+            for automatically generating optimal membrane configurations.
+          </p>
+        </div>
+        <div class="item">
+          <h3>Data-Driven Model Predictive Control</h3>
+          <p>
+            Designed AI-driven dynamic models and fault-prognostic MPC strategies for high-risk batch reactors and intensified chemical processes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="card">
+        <h2>Technical Skills</h2>
+        <div class="tag-list">
+          <span class="tag">Python</span>
+          <span class="tag">Pyomo</span>
+          <span class="tag">TensorFlow</span>
+          <span class="tag">Keras</span>
+          <span class="tag">MATLAB</span>
+          <span class="tag">R</span>
+          <span class="tag">Aspen Plus</span>
+          <span class="tag">COMSOL</span>
+          <span class="tag">MILP / MINLP</span>
+          <span class="tag">Surrogate Modeling</span>
+          <span class="tag">Model Predictive Control</span>
+          <span class="tag">Techno-Economic Analysis</span>
+          <span class="tag">Life-Cycle Assessment</span>
+          <span class="tag">Machine Learning</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications" class="section">
+      <div class="card">
+        <h2>Selected Publications</h2>
+        <div class="item">
+          <h3>Surrogate-Based Superstructure Optimization for Techno-Economic and Sustainability Analysis of Microwave-Assisted Ammonia Production Process</h3>
+          <p>Chemical Engineering and Processing - Process Intensification (2025)</p>
+        </div>
+        <div class="item">
+          <h3>Machine learning-aided process design using limited experimental data: A microwave-assisted ammonia synthesis case study</h3>
+          <p>AIChE Journal (2025)</p>
+        </div>
+        <div class="item">
+          <h3>Advances in Membrane-Assisted Reactors: An Integrative Review on Modeling and Experiments</h3>
+          <p>Separation and Purification Technology (2025)</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section grid-2">
+      <div class="card">
+        <h2>Contact</h2>
+        <p><strong>Email:</strong> <a href="mailto:mam00103@mix.wvu.edu">mam00103@mix.wvu.edu</a></p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/masud045" target="_blank">github.com/masud045</a></p>
+        <p><strong>LinkedIn:</strong> <a href="#">Add your LinkedIn profile link here</a></p>
+      </div>
+
+      <div class="card">
+        <h2>Next Improvements</h2>
+        <p>Add your photo, resume PDF, project links, Google Scholar, and real LinkedIn URL to make the website stronger.</p>
+        <p>You can also later buy a custom domain, but the site works completely free with GitHub Pages.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 Md Abdullah Al Masud • Built with HTML and hosted free on GitHub Pages</div>
+  </footer>
+</body>
+</html>
