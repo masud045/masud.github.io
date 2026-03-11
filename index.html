@@ -3,147 +3,416 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Md Abdullah Al Masud | Portfolio</title>
+  <meta name="description" content="Personal academic website of Md Abdullah Al Masud, Ph.D. Candidate in Chemical Engineering at West Virginia University." />
+  <title>Md Abdullah Al Masud | Academic Portfolio</title>
   <style>
     :root {
-      --bg: #0b1020;
-      --card: #121933;
-      --text: #eef2ff;
-      --muted: #a8b3cf;
-      --accent: #7c9cff;
-      --accent-2: #8ef0c9;
-      --border: rgba(255,255,255,0.08);
-      --shadow: 0 20px 50px rgba(0,0,0,0.35);
-      --max: 1050px;
+      --bg: #08111f;
+      --bg-soft: #0d1830;
+      --panel: rgba(15, 24, 48, 0.82);
+      --panel-2: rgba(14, 21, 39, 0.92);
+      --text: #ecf2ff;
+      --muted: #aebbd5;
+      --accent: #88a8ff;
+      --accent-2: #8df0d1;
+      --gold: #f7d68a;
+      --border: rgba(255,255,255,0.09);
+      --shadow: 0 24px 70px rgba(0,0,0,0.34);
+      --max: 1180px;
+      --radius: 24px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: linear-gradient(180deg, #0b1020 0%, #0d1430 100%);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(136,168,255,0.14), transparent 30%),
+        radial-gradient(circle at top right, rgba(141,240,209,0.12), transparent 30%),
+        linear-gradient(180deg, #07101d 0%, #0a1222 42%, #08101d 100%);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
+    img { max-width: 100%; display: block; }
     a { color: var(--accent-2); text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 34px 0;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      backdrop-filter: blur(14px);
+      padding: 28px;
+    }
 
     header {
       position: sticky;
       top: 0;
-      backdrop-filter: blur(12px);
-      background: rgba(11,16,32,0.75);
+      z-index: 50;
       border-bottom: 1px solid var(--border);
-      z-index: 10;
+      background: rgba(7, 13, 25, 0.74);
+      backdrop-filter: blur(14px);
     }
 
     .nav {
+      min-height: 72px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 14px 0;
+      gap: 18px;
     }
 
-    .brand { font-weight: 800; letter-spacing: 0.3px; }
+    .brand {
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      font-size: 1.08rem;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
     .nav-links {
       display: flex;
-      gap: 18px;
       flex-wrap: wrap;
+      gap: 14px;
       font-size: 0.95rem;
     }
 
+    .nav-links a {
+      color: #d8e2ff;
+      opacity: 0.92;
+    }
+
     .hero {
-      padding: 72px 0 44px;
+      padding: 68px 0 30px;
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+      grid-template-columns: 1.3fr 0.7fr;
       gap: 24px;
+      align-items: stretch;
+    }
+
+    .hero-main {
+      padding: 38px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(136,168,255,0.10), rgba(141,240,209,0.05));
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .eyebrow-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .pill {
+      display: inline-flex;
       align-items: center;
-    }
-
-    .hero-card, .card {
-      background: rgba(18,25,51,0.9);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow);
-      border-radius: 24px;
-    }
-
-    .hero-card { padding: 34px; }
-    .eyebrow {
-      display: inline-block;
-      padding: 6px 12px;
+      gap: 8px;
+      padding: 8px 14px;
       border-radius: 999px;
-      background: rgba(124,156,255,0.14);
-      color: #cad7ff;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.05);
+      color: #dbe5ff;
       font-size: 0.9rem;
-      margin-bottom: 14px;
     }
 
-    h1, h2, h3 { line-height: 1.2; margin: 0 0 14px; }
-    h1 { font-size: clamp(2rem, 5vw, 3.7rem); }
-    h2 { font-size: 1.8rem; margin-bottom: 18px; }
-    p { margin: 0 0 14px; color: var(--muted); }
+    .pill.accent {
+      background: rgba(136,168,255,0.16);
+    }
 
-    .cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+    h1, h2, h3 {
+      margin: 0 0 14px;
+      line-height: 1.18;
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 5vw, 4.25rem);
+      letter-spacing: -0.03em;
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      margin-bottom: 18px;
+    }
+
+    h3 {
+      font-size: 1.06rem;
+    }
+
+    p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .lede {
+      font-size: 1.08rem;
+      max-width: 760px;
+    }
+
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 26px;
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 12px 18px;
+      min-height: 46px;
+      padding: 0 18px;
       border-radius: 14px;
       border: 1px solid var(--border);
-      background: #1a2344;
+      background: rgba(255,255,255,0.04);
       color: var(--text);
-      font-weight: 600;
+      font-weight: 700;
       text-decoration: none;
+      transition: transform 0.18s ease, background 0.18s ease;
     }
+
+    .btn:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
     .btn.primary {
-      background: linear-gradient(135deg, var(--accent), #5a73ff);
+      background: linear-gradient(135deg, #7b98ff, #5c7bff);
     }
 
-    .quick-info {
-      padding: 26px;
+    .btn.secondary {
+      background: linear-gradient(135deg, rgba(141,240,209,0.12), rgba(141,240,209,0.04));
+    }
+
+    .hero-side {
       display: grid;
-      gap: 16px;
+      gap: 18px;
     }
 
-    .info-item strong { display: block; color: var(--text); }
-    .section { padding: 28px 0; }
-    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
-    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .card { padding: 24px; }
+    .headshot-wrap {
+      aspect-ratio: 4 / 4.7;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: linear-gradient(180deg, rgba(136,168,255,0.14), rgba(255,255,255,0.03));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--muted);
+      padding: 24px;
+    }
 
-    .tag-list { display: flex; flex-wrap: wrap; gap: 10px; }
+    .headshot-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .stats-grid,
+    .grid-2,
+    .grid-3 {
+      display: grid;
+      gap: 18px;
+    }
+
+    .stats-grid { grid-template-columns: repeat(4, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+    .stat {
+      padding: 20px;
+      border-radius: 20px;
+      background: var(--panel-2);
+      border: 1px solid var(--border);
+    }
+
+    .stat .value {
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .stat .label {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .section-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .section-note {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .item + .item {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+    }
+
+    .meta {
+      font-size: 0.95rem;
+      color: #d7e0f5;
+      opacity: 0.9;
+      margin-bottom: 8px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
     .tag {
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.06);
       border: 1px solid var(--border);
-      color: #dce5ff;
+      background: rgba(255,255,255,0.05);
+      color: #dde6fd;
       font-size: 0.92rem;
     }
 
-    .item + .item { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--border); }
-    .item h3 { font-size: 1.08rem; margin-bottom: 8px; }
-    .muted { color: var(--muted); }
+    .news-list {
+      display: grid;
+      gap: 14px;
+    }
 
-    footer {
-      padding: 34px 0 60px;
+    .news-item {
+      padding: 18px 20px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .news-date {
+      color: var(--gold);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .publication-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+      font-weight: 600;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: rgba(136,168,255,0.28);
+    }
+
+    .timeline .item {
+      position: relative;
+      padding-left: 10px;
+    }
+
+    .timeline .item::before {
+      content: "";
+      position: absolute;
+      left: -19px;
+      top: 7px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent-2);
+      box-shadow: 0 0 0 5px rgba(141,240,209,0.12);
+    }
+
+    .small {
+      font-size: 0.9rem;
       color: var(--muted);
+    }
+
+    .footer {
+      padding: 26px 0 54px;
       text-align: center;
+      color: var(--muted);
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-grid a {
+      color: #dff7ef;
+    }
+
+    @media (max-width: 1024px) {
+      .hero,
+      .grid-3,
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
     }
 
     @media (max-width: 860px) {
-      .hero, .grid-2, .grid-3 {
-        grid-template-columns: 1fr;
-      }
       .nav {
         align-items: flex-start;
-        gap: 12px;
         flex-direction: column;
+        padding: 14px 0;
+      }
+
+      .hero,
+      .grid-2,
+      .grid-3,
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-main {
+        padding: 28px;
       }
     }
   </style>
@@ -151,13 +420,19 @@
 <body>
   <header>
     <div class="container nav">
-      <div class="brand">Md Abdullah Al Masud</div>
+      <div class="brand">
+        Md Abdullah Al Masud
+        <small>Ph.D. Candidate • Chemical Engineering • West Virginia University</small>
+      </div>
       <nav class="nav-links">
         <a href="#about">About</a>
         <a href="#education">Education</a>
         <a href="#research">Research</a>
-        <a href="#skills">Skills</a>
+        <a href="#awards">Awards</a>
         <a href="#publications">Publications</a>
+        <a href="#presentations">Presentations</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#news">News</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -165,47 +440,93 @@
 
   <main class="container">
     <section class="hero">
-      <div class="hero-card">
-        <div class="eyebrow">Ph.D. Candidate in Chemical Engineering</div>
-        <h1>Process modeling, optimization, and AI-driven sustainable chemical engineering.</h1>
-        <p>
-          I am Md Abdullah Al Masud, a Ph.D. candidate at West Virginia University working on process modeling,
-          superstructure optimization, membrane separations, and AI-integrated decision frameworks for sustainable chemical processes.
-        </p>
-        <div class="cta">
-          <a class="btn primary" href="#contact">Contact Me</a>
-          <a class="btn" href="#publications">View Publications</a>
+      <div class="card hero-main">
+        <div class="hero-content">
+          <div class="eyebrow-row">
+            <span class="pill accent">Incoming Intern at Corteva Agriscience</span>
+            <span class="pill">NSF ICOM 2026 Travel Award Recipient</span>
+          </div>
+          <h1>Advancing sustainable chemical engineering through optimization, AI, and process intensification.</h1>
+          <p class="lede">
+            I am Md Abdullah Al Masud, a Ph.D. Candidate in Chemical Engineering at West Virginia University.
+            My research integrates process systems engineering, machine learning, membrane separations, and
+            superstructure optimization to design efficient, sustainable, and data-driven chemical processes.
+          </p>
+          <div class="cta">
+            <a class="btn primary" href="#publications">Explore Publications</a>
+            <a class="btn secondary" href="#contact">Get in Touch</a>
+            <a class="btn" href="https://www.linkedin.com/in/md-abdullah-al-masud-8b4b19186/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn" href="https://github.com/masud045" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
         </div>
       </div>
 
-      <aside class="hero-card quick-info">
-        <div class="info-item">
-          <strong>Location</strong>
-          <span class="muted">Morgantown, WV</span>
+      <aside class="hero-side">
+        <div class="card">
+          <div class="headshot-wrap">
+            <!-- Replace headshot.jpg with your professional photo file in the same repository -->
+            <!-- Example: <img src="headshot.jpg" alt="Professional headshot of Md Abdullah Al Masud" /> -->
+            <div>
+              <strong style="display:block; color:var(--text); margin-bottom:8px;">Professional Headshot</strong>
+              Upload your image as <code style="color:#fff;">headshot.jpg</code> and replace this placeholder with an &lt;img&gt; tag.
+            </div>
+          </div>
         </div>
-        <div class="info-item">
-          <strong>Email</strong>
-          <span class="muted">mam00103@mix.wvu.edu</span>
-        </div>
-        <div class="info-item">
-          <strong>Expected Graduation</strong>
-          <span class="muted">December 2026</span>
-        </div>
-        <div class="info-item">
-          <strong>Research Focus</strong>
-          <span class="muted">Optimization, AI, process intensification, membrane separations</span>
+
+        <div class="card contact-grid">
+          <div><strong>Email</strong><br /><a href="mailto:mam00103@mix.wvu.edu">mam00103@mix.wvu.edu</a></div>
+          <div><strong>Location</strong><br />Morgantown, West Virginia</div>
+          <div><strong>Expected Graduation</strong><br />December 2026</div>
+          <div><strong>Website Visitors</strong><br /><span id="visitor-count">Set up GoatCounter to show live views</span></div>
         </div>
       </aside>
     </section>
 
+    <section class="section">
+      <div class="stats-grid">
+        <div class="stat">
+          <div class="value">5+</div>
+          <div class="label">Journal and proceeding publications listed</div>
+        </div>
+        <div class="stat">
+          <div class="value">17+</div>
+          <div class="label">Conference presentations and invited talks</div>
+        </div>
+        <div class="stat">
+          <div class="value">6+</div>
+          <div class="label">Awards, scholarships, and honors listed</div>
+        </div>
+        <div class="stat">
+          <div class="value">3</div>
+          <div class="label">Named mentees highlighted</div>
+        </div>
+      </div>
+    </section>
+
     <section id="about" class="section">
       <div class="card">
-        <h2>About Me</h2>
+        <div class="section-title-row">
+          <div>
+            <h2>About</h2>
+            <p class="section-note">Research profile and academic focus</p>
+          </div>
+        </div>
         <p>
-          I specialize in process modeling, optimization, and intensification for sustainable chemical processes.
-          My work combines machine learning, process simulation, and systems optimization to improve efficiency,
-          safety, and sustainability in complex industrial systems.
+          My academic work focuses on process modeling, optimization, and intensification for sustainable chemical processes.
+          I develop large-scale optimization frameworks, surrogate models, and AI-integrated decision systems for complex
+          industrial applications, with particular interests in microwave-assisted processing, membrane systems, nutrient recovery,
+          process control, and sustainability analysis.
         </p>
+        <div class="tag-list" style="margin-top:18px;">
+          <span class="tag">Process Systems Engineering</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Superstructure Optimization</span>
+          <span class="tag">Membrane Separations</span>
+          <span class="tag">Model Predictive Control</span>
+          <span class="tag">Techno-Economic Analysis</span>
+          <span class="tag">Life-Cycle Assessment</span>
+          <span class="tag">Process Intensification</span>
+        </div>
       </div>
     </section>
 
@@ -214,28 +535,32 @@
         <h2>Education</h2>
         <div class="item">
           <h3>West Virginia University</h3>
-          <p>Ph.D. in Chemical Engineering || CGPA: 3.90 || Spring 2023–Present</p>
+          <div class="meta">Ph.D. in Chemical Engineering • Spring 2023–Present • CGPA: 3.90</div>
           <p>Expected graduation: December 2026</p>
         </div>
         <div class="item">
           <h3>Bangladesh University of Engineering and Technology</h3>
-          <p>B.Sc. in Chemical Engineering || CGPA: 3.62 || 2017–2022</p>
+          <div class="meta">B.Sc. in Chemical Engineering • 2017–2022 • CGPA: 3.62</div>
+          <p>Dhaka, Bangladesh</p>
         </div>
       </div>
 
       <div class="card">
-        <h2>Awards & Honors</h2>
+        <h2>Internship & Industry Experience</h2>
         <div class="item">
-          <h3>James and Betty Hall Fellowship Award</h3>
-          <p>West Virginia University || 2025–2026</p>
+          <h3>Corteva Agriscience</h3>
+          <div class="meta">Incoming Intern • Indianapolis, Indiana • May 2026–August 2026</div>
+          <p>Supporting analytical and process R&amp;D through experimentation, data analysis, technical reporting, automation workflows, sensor integration, and real-time signal processing.</p>
         </div>
         <div class="item">
-          <h3>Elias Klein Founder’s Travel Supplement Award</h3>
-          <p>North American Membrane Society || 2025</p>
+          <h3>RAPID Manufacturing Institute</h3>
+          <div class="meta">Student Internship • New York, NY • May 2023–August 2023</div>
+          <p>Developed a machine learning-assisted process intensification project for sustainable ammonia production and presented findings to an interdisciplinary consortium.</p>
         </div>
         <div class="item">
-          <h3>Graduate Student Award & Best Poster Recognition</h3>
-          <p>ACS Fall Meeting 2024 and WVU Diversity in Engineering Conference 2023</p>
+          <h3>Shahjalal Fertilizer Company Limited</h3>
+          <div class="meta">In-Plant Training • Sylhet, Bangladesh • 2022</div>
+          <p>Completed hands-on industrial training in large-scale fertilizer manufacturing, process safety, operations, and environmental health and safety practices.</p>
         </div>
       </div>
     </section>
@@ -243,65 +568,275 @@
     <section id="research" class="section">
       <div class="card">
         <h2>Research Experience</h2>
-        <div class="item">
-          <h3>Graduate Research Assistant — West Virginia University</h3>
-          <p>
-            Developed machine learning models and surrogate-based superstructure optimization frameworks for microwave-assisted ammonia production,
-            improving energy efficiency and sustainability.
-          </p>
-        </div>
-        <div class="item">
-          <h3>Membrane Separation Optimization</h3>
-          <p>
-            Built process-structure-property optimization frameworks for sustainable nutrient recovery and designed a GUI prototype
-            for automatically generating optimal membrane configurations.
-          </p>
-        </div>
-        <div class="item">
-          <h3>Data-Driven Model Predictive Control</h3>
-          <p>
-            Designed AI-driven dynamic models and fault-prognostic MPC strategies for high-risk batch reactors and intensified chemical processes.
-          </p>
+        <div class="timeline">
+          <div class="item">
+            <h3>Data-driven modeling and surrogate-based superstructure optimization of microwave-assisted ammonia production</h3>
+            <p>Developed and validated machine learning models using limited and augmented experimental data to predict ammonia concentration and reactor performance, and performed MINLP-based process design optimization for energy-efficient and sustainable ammonia synthesis.</p>
+          </div>
+          <div class="item">
+            <h3>Superstructure optimization for sustainable membrane separations with process-structure-property relationships</h3>
+            <p>Modeled membrane-based nutrient recovery systems, designed optimal configurations, and created a GUI prototype for automated membrane route generation under product and process constraints.</p>
+          </div>
+          <div class="item">
+            <h3>Data-driven model predictive control for intensified chemical processes</h3>
+            <p>Developed high-fidelity dynamic models and fault-prognostic MPC strategies for high-risk batch reactors and AI-driven thermal optimization in intensified chemical systems.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="skills" class="section">
+    <section class="section grid-2">
       <div class="card">
         <h2>Technical Skills</h2>
         <div class="tag-list">
-          <span class="tag">Python</span>
           <span class="tag">Pyomo</span>
+          <span class="tag">Python</span>
           <span class="tag">TensorFlow</span>
           <span class="tag">Keras</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">Pandas</span>
           <span class="tag">MATLAB</span>
           <span class="tag">R</span>
+          <span class="tag">JMP</span>
           <span class="tag">Aspen Plus</span>
-          <span class="tag">COMSOL</span>
+          <span class="tag">ChemCAD</span>
+          <span class="tag">COMSOL Multiphysics</span>
           <span class="tag">MILP / MINLP</span>
           <span class="tag">Surrogate Modeling</span>
+          <span class="tag">Reinforcement Learning</span>
           <span class="tag">Model Predictive Control</span>
-          <span class="tag">Techno-Economic Analysis</span>
-          <span class="tag">Life-Cycle Assessment</span>
-          <span class="tag">Machine Learning</span>
+          <span class="tag">TEA</span>
+          <span class="tag">LCA</span>
+          <span class="tag">Data Analysis</span>
+          <span class="tag">C / C++</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Professional Highlights</h2>
+        <div class="item">
+          <h3>Peer Reviewing</h3>
+          <p>Invited reviewer for <em>ACS Omega</em> (2026), <em>Chemical Engineering Journal Advances</em> (2026), and <em>Environmental Science: Water Research &amp; Technology</em> (2025).</p>
+        </div>
+        <div class="item">
+          <h3>Mentorship</h3>
+          <p>Mentored Thisali Wadunambu, Kaden Schreiber, and Ethan Brown across research and professional development activities.</p>
+        </div>
+        <div class="item">
+          <h3>Service & Leadership</h3>
+          <p>Served as Public Relation Officer and Sports Secretary of the Bangladeshi Student Association at WVU, and contributed as a judge at WVU and AIChE student research competitions.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards" class="section">
+      <div class="card">
+        <h2>Awards, Scholarships & Honors</h2>
+        <div class="grid-2">
+          <div>
+            <div class="item">
+              <h3>NSF ICOM 2026 Travel Award</h3>
+              <div class="meta">2026 • Travel support of $1,250</div>
+              <p>Received to attend a conference in San Antonio, Texas.</p>
+            </div>
+            <div class="item">
+              <h3>James and Betty Hall Fellowship Award</h3>
+              <div class="meta">West Virginia University • Fall 2025–Fall 2026</div>
+              <p>Prestigious fellowship support recognizing research excellence.</p>
+            </div>
+            <div class="item">
+              <h3>Elias Klein Founder’s Travel Supplement Award</h3>
+              <div class="meta">North American Membrane Society • 2025</div>
+              <p>Competitive travel support for conference participation.</p>
+            </div>
+          </div>
+          <div>
+            <div class="item">
+              <h3>Third Place, Industrial and Environmental Chemistry Graduate Student Award</h3>
+              <div class="meta">American Chemical Society Fall Meeting • Denver, Colorado • 2024</div>
+              <p>Recognized for graduate research presentation quality and scientific impact.</p>
+            </div>
+            <div class="item">
+              <h3>Best Poster Presentation Award</h3>
+              <div class="meta">Diversity in Engineering Conference • Statler College of Engineering, WVU • 2023</div>
+              <p>Awarded for an outstanding poster presentation.</p>
+            </div>
+            <div class="item">
+              <h3>AIChE Travel Grant & Dean’s List Recognition</h3>
+              <div class="meta">AIChE Annual Meeting • 2023; BUET Dean’s List • July 2017 & January 2019</div>
+              <p>Recognized for academic excellence and conference participation.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="publications" class="section">
       <div class="card">
-        <h2>Selected Publications</h2>
+        <div class="section-title-row">
+          <div>
+            <h2>Publications</h2>
+            <p class="section-note">Journal articles and proceedings</p>
+          </div>
+        </div>
+
+        <div class="item">
+          <h3>Modeling and Optimization of Sustainable Membrane Separation Processes</h3>
+          <div class="meta">Sustainability Science and Technology • 2026 • To submit by March 2026</div>
+          <p>Manuscript in preparation; public link will be added after submission.</p>
+        </div>
+
+        <div class="item">
+          <h3>Microwave Catalysis for Platform Chemicals Synthesis and Waste Upcycling</h3>
+          <div class="meta">Chemical Engineering Journal • 2026</div>
+          <a class="publication-link" href="https://doi.org/10.1016/j.cej.2026.174878" target="_blank" rel="noreferrer">View publication ↗</a>
+        </div>
+
         <div class="item">
           <h3>Surrogate-Based Superstructure Optimization for Techno-Economic and Sustainability Analysis of Microwave-Assisted Ammonia Production Process</h3>
-          <p>Chemical Engineering and Processing - Process Intensification (2025)</p>
+          <div class="meta">Chemical Engineering and Processing - Process Intensification • 2025</div>
+          <a class="publication-link" href="https://doi.org/10.1016/j.cep.2025.110648" target="_blank" rel="noreferrer">View publication ↗</a>
         </div>
+
         <div class="item">
           <h3>Machine learning-aided process design using limited experimental data: A microwave-assisted ammonia synthesis case study</h3>
-          <p>AIChE Journal (2025)</p>
+          <div class="meta">AIChE Journal • 2025</div>
+          <a class="publication-link" href="https://doi.org/10.1002/aic.18621" target="_blank" rel="noreferrer">View publication ↗</a>
         </div>
+
         <div class="item">
           <h3>Advances in Membrane-Assisted Reactors: An Integrative Review on Modeling and Experiments</h3>
-          <p>Separation and Purification Technology (2025)</p>
+          <div class="meta">Separation and Purification Technology • 2025</div>
+          <a class="publication-link" href="https://doi.org/10.1016/j.seppur.2025.133095" target="_blank" rel="noreferrer">View publication ↗</a>
+        </div>
+
+        <div class="item">
+          <h3>Machine Learning-Aided Process Design for Microwave-Assisted Ammonia Production</h3>
+          <div class="meta">Conference Proceeding • LAPSE:2024.1543 • 2024</div>
+          <a class="publication-link" href="https://doi.org/10.69997/sct.121422" target="_blank" rel="noreferrer">View proceeding ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="presentations" class="section">
+      <div class="card">
+        <div class="section-title-row">
+          <div>
+            <h2>Conference Presentations & Invited Talks</h2>
+            <p class="section-note">Selected recent presentations</p>
+          </div>
+        </div>
+        <div class="timeline">
+          <div class="item">
+            <h3>AIChE Annual Meeting, Boston, MI (2025)</h3>
+            <p>Sustainable Process Design and Optimization for Microwave-Assisted Ammonia Production; Machine Learning-Aided Design and Operational Optimization for Sustainable Chemical Process Systems; Machine Learning-Based Modeling and Dynamic Optimization of Microwave-Enhanced Methane Coupling with Programmable Heating; Optimization-Based Membrane Design for Selective Nutrient Recovery from Wastewater.</p>
+          </div>
+          <div class="item">
+            <h3>North American Membrane Society Conference, Nashville, Tennessee (2025)</h3>
+            <p>A Process-Structure-Property Modeling and Optimization Framework for Membrane-based Selective Nutrient Recovery.</p>
+          </div>
+          <div class="item">
+            <h3>Great Lakes PSE Workshop, Ohio State University (2025)</h3>
+            <p>Surrogate-Based Superstructure Optimization Framework for Microwave-Assisted Ammonia Production.</p>
+          </div>
+          <div class="item">
+            <h3>Mid-Atlantic Process Control Academy, Wayne State University (2025)</h3>
+            <p>Machine Learning-based Modeling and Dynamic Optimization of Microwave-enhanced Methane Coupling with Programmable Thermal Heating.</p>
+          </div>
+          <div class="item">
+            <h3>AIChE Annual Meeting, San Diego, California (2024)</h3>
+            <p>Process Synthesis Optimization for Microwave-Assisted Ammonia Production with Data-Driven Modeling; Using Data-Driven Modeling and Systems Optimization for Advancing Sustainable Nutrient Recovery Technologies from Concentrated Wastewater Sources; Data-Driven Surrogate Modeling and Optimization for Ammonia Production.</p>
+          </div>
+          <div class="item">
+            <h3>ACS Conference, Denver, Colorado & FOCAPD, Breckenridge, Colorado (2024)</h3>
+            <p>Design optimization of microwave-assisted ammonia production processes: an integrated machine learning and superstructure-based approach; Machine Learning-Aided Process Design for Microwave-Assisted Ammonia Production: An Application of Machine Learning Techniques.</p>
+          </div>
+          <div class="item">
+            <h3>WVU Research Open House, RAPID Internship Program, and Guest Lecture (2024–2023)</h3>
+            <p>Presented research at the Benjamin Statler Research Open House, delivered the RAPID Summer Internship presentation, and contributed to a guest lecture on MATLAB and Machine Learning for CHE102.</p>
+          </div>
+          <div class="item">
+            <h3>AIChE Annual Meeting, Orlando, Florida (2023)</h3>
+            <p>Machine Learning Aided Process Design and Intensification Using Sparse Experimental Data: An Ammonia Production Example; Fault-Prognostic Explicit Model Predictive Control with Physics-Data Driven Monitoring.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="leadership" class="section grid-3">
+      <div class="card">
+        <h2>Reviewing Experience</h2>
+        <div class="item">
+          <h3>ACS Omega</h3>
+          <p>Invited Reviewer • 2026</p>
+        </div>
+        <div class="item">
+          <h3>Chemical Engineering Journal Advances</h3>
+          <p>Invited Reviewer • 2026</p>
+        </div>
+        <div class="item">
+          <h3>Environmental Science: Water Research &amp; Technology</h3>
+          <p>Invited Reviewer • 2025</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Leadership & Service</h2>
+        <div class="item">
+          <h3>Bangladeshi Student Association at WVU</h3>
+          <p>Public Relation Officer and Sports Secretary • 2023–2024</p>
+        </div>
+        <div class="item">
+          <h3>Judge, Undergraduate Poster Competition</h3>
+          <p>AIChE Annual Meeting • San Diego, California • October 2024</p>
+        </div>
+        <div class="item">
+          <h3>Judge, Undergraduate Research Symposium</h3>
+          <p>West Virginia University • Fall 2023</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Mentorship</h2>
+        <div class="item">
+          <h3>Thisali Wadunambu</h3>
+          <p>Process Engineer at Worley</p>
+        </div>
+        <div class="item">
+          <h3>Kaden Schreiber</h3>
+          <p>Ph.D. Student at Georgia Tech</p>
+        </div>
+        <div class="item">
+          <h3>Ethan Brown</h3>
+          <p>Senior Undergraduate Researcher at West Virginia University</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="news" class="section">
+      <div class="card">
+        <div class="section-title-row">
+          <div>
+            <h2>Recent News</h2>
+            <p class="section-note">Recent highlights and milestones</p>
+          </div>
+        </div>
+        <div class="news-list">
+          <div class="news-item">
+            <div class="news-date">2026</div>
+            <h3>Received NSF ICOM 2026 Travel Award</h3>
+            <p>Awarded $1,250 in travel support to attend a conference in San Antonio, Texas.</p>
+          </div>
+          <div class="news-item">
+            <div class="news-date">Summer 2026</div>
+            <h3>Incoming Intern at Corteva Agriscience</h3>
+            <p>Will join Corteva in Indianapolis to support analytical and process R&amp;D, process automation, and data-driven experimentation.</p>
+          </div>
+          <div class="news-item">
+            <div class="news-date">2025–2026</div>
+            <h3>Awarded James and Betty Hall Fellowship</h3>
+            <p>Recognized by West Virginia University for research excellence and academic achievement.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -310,15 +845,43 @@
       <div class="card">
         <h2>Contact</h2>
         <p><strong>Email:</strong> <a href="mailto:mam00103@mix.wvu.edu">mam00103@mix.wvu.edu</a></p>
-        <p><strong>GitHub:</strong> <a href="https://github.com/masud045" target="_blank">github.com/masud045</a></p>
-        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/md-abdullah-al-masud-8b4b19186/">Click here!</a></p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/masud045" target="_blank" rel="noreferrer">github.com/masud045</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/md-abdullah-al-masud-8b4b19186/" target="_blank" rel="noreferrer">md-abdullah-al-masud-8b4b19186</a></p>
       </div>
 
+      <div class="card">
+        <h2>Website Setup Notes</h2>
+        <p>Add your professional headshot file to the repository and name it <strong>headshot.jpg</strong>.</p>
+        <p>For the live visitor count, create a free GoatCounter account and replace every <strong>YOURCODE</strong> below with your GoatCounter account code.</p>
+        <p class="small">Once you set that up, your website can display the number of visitors automatically.</p>
+      </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container">© 2026 Md Abdullah Al Masud</div>
+  <footer class="footer">
+    <div class="container">© 2026 Md Abdullah Al Masud • Built with HTML and hosted on GitHub Pages</div>
   </footer>
+
+  <!-- GoatCounter analytics: replace YOURCODE with your GoatCounter code -->
+  <script data-goatcounter="https://YOURCODE.goatcounter.com/count" async src="//gc.zgo.at/count.v3.js" crossorigin="anonymous"></script>
+  <script>
+    (function () {
+      var el = document.getElementById('visitor-count');
+      if (!el) return;
+
+      fetch('https://YOURCODE.goatcounter.com/counter/TOTAL.json?no_branding=1')
+        .then(function (response) { return response.json(); })
+        .then(function (data) {
+          if (data && data.count) {
+            el.textContent = data.count + ' total visits';
+          } else {
+            el.textContent = 'Visitor counter unavailable';
+          }
+        })
+        .catch(function () {
+          el.textContent = 'Add GoatCounter code to show visits';
+        });
+    })();
+  </script>
 </body>
 </html>
