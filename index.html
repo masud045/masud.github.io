@@ -863,25 +863,16 @@
   </footer>
 
   <!-- GoatCounter analytics: replace YOURCODE with your GoatCounter code -->
-  <script data-goatcounter="https://YOURCODE.goatcounter.com/count" async src="//gc.zgo.at/count.v3.js" crossorigin="anonymous"></script>
-  <script>
-    (function () {
-      var el = document.getElementById('visitor-count');
-      if (!el) return;
+  <script data-goatcounter="https://masud.goatcounter.com/count"
+async src="//gc.zgo.at/count.js"></script>
+<p><strong>Visitors:</strong> <span id="visits"></span></p>
 
-      fetch('https://YOURCODE.goatcounter.com/counter/TOTAL.json?no_branding=1')
-        .then(function (response) { return response.json(); })
-        .then(function (data) {
-          if (data && data.count) {
-            el.textContent = data.count + ' total visits';
-          } else {
-            el.textContent = 'Visitor counter unavailable';
-          }
-        })
-        .catch(function () {
-          el.textContent = 'Add GoatCounter code to show visits';
-        });
-    })();
-  </script>
+<script>
+fetch("https://masud.goatcounter.com/counter/TOTAL.json")
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("visits").textContent = data.count;
+  });
+</script>
 </body>
 </html>
