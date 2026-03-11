@@ -865,16 +865,19 @@
       Visitors: <span id="visits">Loading...</span>
     </div>
   </div>
+<footer class="footer">
+  <div class="container">
+    © 2026 Md Abdullah Al Masud
+    <br><br>
+    <div id="visitor-box">
+      Visitors: 
+      <img src="https://masud.goatcounter.com/counter/TOTAL.svg" alt="visitor count">
+    </div>
+  </div>
 </footer>
-  <script data-goatcounter="https://masud.goatcounter.com/count"
+
+<script data-goatcounter="https://masud.goatcounter.com/count"
 async src="//gc.zgo.at/count.js"></script>
 
-<script>
-fetch("https://masud.goatcounter.com/counter/TOTAL.json")
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("visits").textContent = data.count;
-  });
-</script>
 </body>
 </html>
