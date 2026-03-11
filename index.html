@@ -850,22 +850,26 @@
       </div>
 
       <div class="card">
-        <h2>Website Setup Notes</h2>
-        <p>Add your professional headshot file to the repository and name it <strong>headshot.jpg</strong>.</p>
-        <p>For the live visitor count, create a free GoatCounter account and replace every <strong>YOURCODE</strong> below with your GoatCounter account code.</p>
-        <p class="small">Once you set that up, your website can display the number of visitors automatically.</p>
+        <h2>Quick Links</h2>
+        <p><strong>Research Group:</strong> <a href="https://yuhetian.faculty.wvu.edu/members" target="_blank" rel="noreferrer">Innovation-Driven Sustainable Systems Group</a></p>
+        
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="container">© 2026 Md Abdullah Al Masud • Built with HTML and hosted on GitHub Pages</div>
-  </footer>
+<footer class="footer">
+  <div class="container">
+    © 2026 Md Abdullah Al Masud
+    <br><br>
+    <div id="visitor-box">
+      Visitors: <span id="visits">Loading...</span>
+    </div>
+  </div>
+</footer>
 
   <!-- GoatCounter analytics: replace YOURCODE with your GoatCounter code -->
   <script data-goatcounter="https://masud.goatcounter.com/count"
 async src="//gc.zgo.at/count.js"></script>
-<p><strong>Visitors:</strong> <span id="visits"></span></p>
 
 <script>
 fetch("https://masud.goatcounter.com/counter/TOTAL.json")
